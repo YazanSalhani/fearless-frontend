@@ -23,7 +23,7 @@ function dateFormat(date) {
 
 window.addEventListener('DOMContentLoaded', async () => {
 
-    const url = 'http://localhost:8000/api/conferences/t';
+    const url = 'http://localhost:8000/api/conferences/';
 
     try {
       const response = await fetch(url);
@@ -71,10 +71,10 @@ window.addEventListener('DOMContentLoaded', async () => {
 
       }
     } catch (error) {
-        console.error("erorr",error);
+        console.error("error",error);
       // Figure out what to do if an error is raised
-      const errorAlert = document.getElementById("error-alert");
-      errorAlert.classList.remove('d-none');
+        const errorAlert = document.getElementById("error-alert");
+        errorAlert.classList.remove('d-none');
     }
 
   });
