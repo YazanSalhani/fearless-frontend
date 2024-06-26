@@ -5,7 +5,6 @@ import os
 PEXELS_API_KEY = os.environ["PEXELS_API_KEY"]
 OPEN_WEATHER_API_KEY = os.environ["OPEN_WEATHER_API_KEY"]
 
-
 def get_weather_data(city, state):
     params = {
         "q": f"{city},{state},US",
@@ -42,6 +41,7 @@ def get_weather_data(city, state):
 
 
 def get_photo(city, state):
+    print("@@&$##%#&##&$%#&&#%", os.environ)
     headers = {"Authorization": PEXELS_API_KEY}
     params = {
         "per_page": 1,

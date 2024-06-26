@@ -12,6 +12,7 @@ class LocationListEncoder(ModelEncoder):
     properties = [
         "name",
         "picture_url",
+        "id",
     ]
 
 
@@ -188,7 +189,6 @@ def api_list_locations(request):
         )
     else:
         content = json.loads(request.body)
-        print("###################################################",content)
         try:
             state = State.objects.get(abbreviation=content["state"])
             content["state"] = state
@@ -197,7 +197,6 @@ def api_list_locations(request):
                 {"message": "Invalid state abbreviation"},
                 status=400,
             )
-
         photo = get_photo(content["city"], content["state"].abbreviation)
         content.update(photo)
         location = Location.objects.create(**content)

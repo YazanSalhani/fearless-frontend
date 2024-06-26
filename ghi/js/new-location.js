@@ -14,11 +14,11 @@ window.addEventListener('DOMContentLoaded', async () => {
             })
 
         } else {
-            throw new Error(`Error retrieving states: ${response.status} ${response.statusText}`)
+            throw new Error(`Error retrieving states: ${response.status} ${response.statusText}`);
         }
 
         const formTag = document.getElementById('create-location-form');
-        formTag.addEventListener("submit", async event => {
+        formTag.addEventListener('submit', async event => {
             event.preventDefault();
 
             const formData = new FormData(formTag);
@@ -26,12 +26,12 @@ window.addEventListener('DOMContentLoaded', async () => {
             const json = JSON.stringify(Object.fromEntries(formData));
             const locationUrl = 'http://localhost:8000/api/locations/';
             const fetchConfig = {
-                method: "post",
+                method: 'post',
                 body: json,
                 headers: {
                     'Content-Type': 'application/json',
                 },
-            }
+            };
             const locationResponse = await fetch(locationUrl, fetchConfig);
             if (locationResponse.ok) {
                 formTag.reset();
@@ -39,6 +39,6 @@ window.addEventListener('DOMContentLoaded', async () => {
             }
         });
     } catch (e){
-        console.error("error", e)
+        console.error("error", e);
     }
 });
